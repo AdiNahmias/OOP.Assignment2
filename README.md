@@ -27,4 +27,5 @@ From the analysis of the running times that can be seen in main we can see that 
 
 
 
+![image](https://user-images.githubusercontent.com/118722490/211202362-627797a9-0821-409c-a044-606b0c96f452.png)
 
