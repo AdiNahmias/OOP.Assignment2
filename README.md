@@ -1,6 +1,6 @@
 # OOP.Assignment2
 
-Part a
+Part A
 
 In part A of the assignment we define several functions:
 In the first function we created n files and, in each file, a random number of lines obtained by using java's random class. The function returned an array in which we saved the file names.
@@ -26,9 +26,36 @@ From the analysis of the running times that can be seen in main we can see that 
 
 
 
-UML diagram - part a
+UML diagram 
 
 
 
 ![image](https://user-images.githubusercontent.com/118722490/211202362-627797a9-0821-409c-a044-606b0c96f452.png)
+
+
+Part B
+
+
+In this part we created 2 class, Task and CustomExecutor.
+
+TASK
+This is a generic class and in it we implement callable to perform the tasks and implement Comparable to define how to differentiate between the types of tasks.
+We created 2 types of constructors and defined them as private in order not to expose the constructors and allow access to them, and in order to create a new instance of type TASK we created public functions that are used as constructors, thus we used the Factory Method Design Pattern.
+
+Customexecutor
+This is a generic class and we used it as Priority Blocking Queue to send the tasks to be executed according to their priority. We used a blocking queue so that it would not be possible to insert new tasks when the queue is confirmed to be full (that is blocked), or in the event that the queue is empty and there are no tasks to perform. And the queue sorts the tasks according to their priority that we defined in the compareTo method
+Every time we added a task to the queue we made sure to update the max_priority accordingly. We did this so that we could later get the maximum priority in the queue in O(1) complexity, (by the function getCurrentMax).
+
+
+UML diagram
+
+
+
+![image](https://user-images.githubusercontent.com/118722490/211408831-785aa878-a85d-4587-a78d-19dca8c7e96c.png)
+
+
+
+
+
+
 
