@@ -26,7 +26,7 @@ From the analysis of the running times that can be seen in main we can see that 
 
 
 
-UML diagram
+UML diagram - part a
 
 
 
