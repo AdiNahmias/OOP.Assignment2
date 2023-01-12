@@ -35,23 +35,22 @@ UML diagram
 
 Part B
 
+In this part we created 2 class, Task and CustomExecutor
 
-In this part we created 2 class, Task and CustomExecutor.
+TASK This is a generic class and in it we implement Callable to perform the tasks, and implement Comparable to define how to differentiate between the types of tasks.
+We wanted our task to have features of FutureTask so we extended this class. FutureTask exstend to Runnable it is means that we can use FutureTask as Runnable and can be submitted to ExecutorService for execution.
+ We created 2 types of constructors and defined them as private in order not to expose the constructors and allow access to them, and in order to create a new instance of type Task we created public functions that are used as constructors, thus we used the Factory Method Design Pattern.
 
-TASK
-This is a generic class and in it we implement callable to perform the tasks and implement Comparable to define how to differentiate between the types of tasks.
-We created 2 types of constructors and defined them as private in order not to expose the constructors and allow access to them, and in order to create a new instance of type TASK we created public functions that are used as constructors, thus we used the Factory Method Design Pattern.
-
-Customexecutor
-This is a generic class and we used it as Priority Blocking Queue to send the tasks to be executed according to their priority. We used a blocking queue so that it would not be possible to insert new tasks when the queue is confirmed to be full (that is blocked), or in the event that the queue is empty and there are no tasks to perform. And the queue sorts the tasks according to their priority that we defined in the compareTo method
-Every time we added a task to the queue we made sure to update the max_priority accordingly. We did this so that we could later get the maximum priority in the queue in O(1) complexity, (by the function getCurrentMax).
+Customexecutor This is a generic class that inherits from ThreadPoolExecutor to execute tasks according to their priority.
+First we created an array of size 10 so that a Task with value 1 will update the 1st place in the array. Using the array we can know how many tasks there are for each priority, so that later we will get the maximum priority (in the getCurrentMax function) with a complexity that is at most O(10), that is O(1). The priority is determined by the compareTo method as we create in Task class, and every time we added a Task (with submit function) to be executed we updated the array we built.
 
 
 UML diagram
 
 
 
-![image](https://user-images.githubusercontent.com/118722490/211408831-785aa878-a85d-4587-a78d-19dca8c7e96c.png)
+![image](https://user-images.githubusercontent.com/118722490/212109307-400a1aab-e3b7-47ed-be0a-216a80efc675.png)
+
 
 
 
